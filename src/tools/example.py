@@ -22,4 +22,8 @@ def add(a: int, b: int) -> int:
 
 
 def build_tools():
+    # for openai model can see what tools are available, we need to convert the langchain tool to openai tool
     return [convert_to_openai_tool(get_weather), convert_to_openai_tool(add)]
+
+# 1. 用 tool.name 當 key 建 registry
+TOOLS = {t.name: t for t in [get_weather, add]}
